@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Credit Score Dashboard</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+    .sidebar {
+      height: 100vh;
+      position: fixed;
+      background-color: #343a40; /* Dark grey */
+      color: #fff; /* White text */
+      z-index: 1100; /* Ensure sidebar is above other elements */
+    }
+    .sidebar .list-group-item {
+      background-color: #343a40; /* Dark grey */
+      color: #fff; /* White text */
+    }
+    .sidebar .list-group-item.active {
+      background-color: #007bff; /* Blue */
+      border-color: #007bff; /* Blue */
+    }
+    .main-content {
+      margin-left: 250px;
+      padding-top: 70px; /* Add padding to prevent content from hiding behind header */
+    }
+    .header {
+      background-color: #fff; /* White background */
+      padding: 10px;
+      border-bottom: none; /* Remove bottom border */
+      color: #343a40; /* Dark grey text */
+      width: calc(100% - 250px); /* Adjust width to account for sidebar */
+      position: fixed;
+      top: 0;
+      left: 250px; /* Align with sidebar */
+      z-index: 1000; /* Ensure header is below sidebar */
+      display: flex;
+      justify-content: center; /* Center content */
+      align-items: center;
+    }
+    .header .navbar-toggler {
+      position: absolute;
+      left: 10px;
+      z-index: 1200; /* Ensure hamburger menu is above other elements */
+    }
+    .header .right-logo {
+      position: absolute;
+      right: 10px;
+      width: 30px;
+      height: 30px;
+    }
+    .navbar-toggler {
+      border-color: rgba(255, 255, 255, 0.1); /* Light border */
+    }
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%2851, 51, 51, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); /* Gray color */
+    }
+    .credit-score-meter {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      color: #dc3545; /* Red text */
+    }
+    .credit-score-meter h2 {
+      font-size: 2rem; /* Default font size */
+    }
+    .form-group {
+      margin-top: 20px; /* Adjust margin to prevent hiding behind header */
+      display: flex;
+      align-items: center;
+    }
+    .form-group label {
+      color: #fff; /* White text */
+      margin-right: 10px;
+    }
+    .form-group input {
+      flex: 1;
+      max-width: 250px;
+      margin-right: 10px;
+    }
+    .btn-primary {
+      background-color: #007bff; /* Blue */
+      border-color: #007bff; /* Blue */
+      max-width: 100px;
+    }
+    .btn-secondary {
+      background-color: #6c757d; /* Grey */
+      border-color: #6c757d; /* Grey */
+    }
+    .card {
+      background-color: #f8f9fa;
+    }
+    .card-title {
+      color: #007bff; /* Blue */
+    }
+    .card-text {
+      color: #6c757d; /* Grey */
+    }
+    @media (max-width: 768px) {
+      .sidebar {
+        position: relative;
+        height: auto;
+        z-index: 1000; /* Ensure sidebar is above other elements */
+        padding-top: 80px; /* Add padding to ensure it starts below the top bar */
+      }
+      .main-content {
+        margin-left: 0;
+        margin-top: 60px; /* Adjust for fixed header */
+        padding-top: 80px; /* Add padding to prevent overlap with hamburger menu */
+      }
+      .header {
+        width: 100%;
+        left: 0;
+        text-align: center; /* Center content on mobile */
+        justify-content: space-between;
+        height: 80px; /* Increase height of top bar */
+      }
+      .navbar-toggler {
+        margin-left: 0; /* Shift to extreme left */
+      }
+      .header h1 {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1.5rem; /* Smaller font size for mobile */
+      }
+      .header img {
+        margin-right: 10px;
+      }
+      .sidebar .text-center {
+        display: block; /* Ensure logo is visible in sidebar */
+      }
+      .form-group {
+        width: 100%;
+        margin-top: 0; /* Remove top margin for mobile */
+        flex-direction: column;
+        padding-top: 0; /* Remove padding-top for mobile */
+        margin-bottom: 0; /* Remove bottom margin for mobile */
+      }
+      .form-group input, .form-group button {
+        width: 100%;
+        max-width: none;
+      }
+      .form-group .btn-primary {
+        max-width: 80px; /* Smaller button size for mobile */
+      }
+      .credit-score-meter h2 {
+        font-size: 1.5rem; /* Smaller font size for mobile */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse" id="sidebarMenu">
+        <div class="text-center my-3">
+          <img src="broken-image.png" alt="Jazz Logo" class="img-fluid">
+        </div>
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action active">Credit Score</a>
+          <a href="#" class="list-group-item list-group-item-action">Credit History</a>
+          <a href="#" class="list-group-item list-group-item-action">Products</a>
+          <a href="#" class="list-group-item list-group-item-action">SIM Info</a>
+          <a href="#" class="list-group-item list-group-item-action">My Account</a>
+        </div>
+      </nav>
+
+      <!-- Main Content -->
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 main-content">
+        <!-- Header -->
+        <header class="header d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center">
+          <button class="navbar-toggler d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <h1>Credit Score</h1>
+          <img src="dummy-logo.png" alt="Dummy Logo" class="img-fluid right-logo">
+        </header>
+
+        <!-- Mobile Number Input -->
+        <div class="form-group mt-3">
+          <label for="mobileNumber">Mobile Number</label>
+          <input type="text" class="form-control" id="mobileNumber" placeholder="Enter your mobile number">
+          <button class="btn btn-primary">Enter</button>
+        </div>
+
+        <!-- Credit Score Meter -->
+        <div class="credit-score-meter">
+          <h2>07 (Very Good)</h2>
+        </div>
+        <p>Last Update: July 26, 2024</p>
+        <p>Next Update: August 26, 2024</p>
+
+        <!-- Buttons -->
+        <div class="mb-3">
+          <button class="btn btn-secondary">View Credit History</button>
+          <button class="btn btn-secondary">Billing & Payments</button>
+        </div>
+
+        <!-- Understand Jazz Score -->
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Understand Jazz Score</h5>
+            <p class="card-text">Very Good (green), Good (yellow), Fair (orange), Poor (red)</p>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
