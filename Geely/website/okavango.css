@@ -1,0 +1,542 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: "NeoSans";
+  }
+  h1{
+    font-weight: 500px;
+    font-size: 54px;
+  }
+  
+  .container {
+    /* max-width: 1200px; */
+    margin: 0 auto;
+    /* padding: 20px; */
+  }
+  
+  /* Navbar Styles */
+  .topnav {
+    background-color: black;
+    overflow: hidden;
+   margin-left: auto;
+   align-items: center;
+  
+   margin-right: auto;
+  }
+  
+  .navmenu {
+  /* max-width: 1300px; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    
+    
+  }
+  
+  .logo img {
+    margin-left: 40px;
+    max-width: 200px;
+  }
+  
+  .nevtext h3 {
+    color: white;
+    margin-right: 50px;
+  }
+  
+  /* Banner Styles */
+  .banner img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+  }
+  .mobilebanner{
+    display: none;
+  }
+  .mobilebanner1{
+    display: none;
+  }
+  
+  
+  
+  
+  /* Call to Action Styles */
+  .calltoaction {
+    margin-top: 0;
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 40px;
+  }
+  
+  .calltoaction h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .flex-1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .cimg {
+    margin-right: 20px;
+    width: 45%;
+  }
+  
+  .cimg img {
+    max-width: 100%;
+    height: 660px;
+    display: block;
+  }
+  
+  .form {
+    width: 60%;
+    background-color: #ffffff;
+    border-radius: 13px;
+    height: 660px;
+  }
+  
+  .Okavango-form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+  }
+  
+  .Okavango-form .field-1,
+  .Okavango-form .field-2,
+  .Okavango-form .flied-3,
+  .Okavango-form .filed-4 {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .Okavango-form .field-1 > *,
+  .Okavango-form .field-2 > *,
+  .Okavango-form .flied-3 > *,
+  .Okavango-form .filed-4 > * {
+    flex: 1;
+    margin-right: 10px;
+    margin-top: 15px;
+  }
+  
+  .Okavango-form input[type="text"],
+  .Okavango-form input[type="email"],
+  .Okavango-form input[type="tel"],
+  .Okavango-form select,
+  .Okavango-form textarea {
+    width: 100%; /* Adjusted width to be 100% */
+    padding: 20px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .Okavango-form input[required],
+  .Okavango-form select[required],
+  .Okavango-form textarea[required] {
+    background-color: #f2f2f2;
+  }
+  
+  .Okavango-form input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  
+  .Okavango-form textarea {
+    height: 100px;
+    resize: none;
+    overflow: auto;
+  }
+  
+  .Okavango-form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .Okavango-form .submit input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .Okavango-form .submit input[type="submit"]:hover {
+    background-color: #333;
+  }
+  
+  
+  /* Gallery Styles */
+.galleries {
+    margin-top: 30px;
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 10px 15px 10px 15px;
+  }
+  
+  .galleries h1 {
+    margin-bottom: 20px;
+    font-family: "NeoSans";
+  }
+  
+  .gel {
+    padding-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the top of the flex container */
+  }
+  
+  .flex-row {
+    flex: 1 0 calc(33.33% - 6px); /* Adjusted width for three items in a row with margins */
+    margin: 3px;
+    position: relative;
+    cursor: pointer;
+    transition-property: filter, transform;
+  }
+  
+  .flex-row img {
+    width: 100%; /* Make images fill their parent containers */
+    height: 300px; /* Maintain aspect ratio */
+    object-fit: cover;
+    transition: 0.3s ease;
+  }
+  
+  .flex-row:hover::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Color overlay */
+    transition: opacity 0.3s ease;
+    opacity: 0.5;
+  }
+  
+  @media screen and (max-width: 1024px) {
+    .flex-row {
+        flex-basis: calc(50% - 6px); /* Adjusted width for two items in a row with margins */
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .flex-row {
+        flex-basis: calc(100% - 6px); /* Full width for one item per row with margins */
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  /* Default footer styles */
+  footer {
+    background-color: #f2f2f2;
+  }
+  
+  .footerbar {
+    margin-top: 20px;
+    padding-top: 20px;
+    background-color: #f2f2f2;
+    display: flex;
+  }
+  
+  .flogo {
+    margin-left: 30px;
+    margin-top: 20px;
+  }
+  
+  .footerheading {
+    width: 90px !important;
+    margin-left: 30px;
+    margin-top: 10px;
+  }
+  
+  .copyright {
+    margin-left: 30px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    color: black;
+    font-size: 14px;
+    justify-content: space-between;
+  }
+  
+  .social-icons {
+    margin-right: 30px;
+    color: #333;
+  }
+  
+  .social-icons a {
+    color: #333;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    margin-left: 10px;
+  }
+  
+  
+  /* Additional styling for copyright text */
+  
+  
+  
+  /* Media Queries */
+  
+  
+  
+  /* Media query for devices with a maximum width of 400px */
+  @media screen and (max-width: 768px) {
+    .webbanner  {
+      display: none; /* Hide main banner on smaller screens */
+    }
+    
+    .mobilebanner {
+      object-fit: cover;
+      display:block; /* Show mobile banner on smaller screens */
+    }
+    .mobilebanner img{
+      object-fit: cover;
+    }
+    .mobilebanner1 {
+      display: none; /* Hide second mobile banner on screens up to 768px */
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .mobilebanner {
+      display: none; /* Hide first mobile banner on very small screens */
+    }
+    
+    .mobilebanner1 {
+      display: block; /* Show second mobile banner on very small screens */
+    }
+  }
+  
+  
+  
+  
+  
+  
+  
+  /* Media query for tablets */
+  @media screen and (max-width: 768px) {
+    .flex-1 {
+      flex-direction: column; /* Adjusted flex direction for tablets */
+    }
+    .calltoaction h1 {
+      font-size: 45px; /* Adjusted font size for mobile devices */
+    }
+    .cimg {
+      padding-left: 25px;
+      align-items: center;
+      width: 100%; /* Adjusted width for tablets */
+    }
+    
+    .form {
+      margin-top: 30px;
+      width: 100%; /* Adjusted width for tablets */
+    }
+  }
+  
+  /* Media query for mobile devices */
+  @media screen and (max-width: 480px) {
+    .calltoaction h1 {
+      font-size: 20px; /* Adjusted font size for mobile devices */
+    }
+    
+    .cimg {
+      padding-left: 15px;
+      align-items: center;
+      width: 100%; /* Adjusted width for tablets */
+    }
+    
+    .form {
+      width: 100%; /* Adjusted width for mobile devices */
+    height: auto;
+    }
+    .Okavango-form {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px;
+    }
+    
+    .Okavango-form .field-1,
+    .Okavango-form .field-2,
+    .Okavango-form .flied-3,
+    .Okavango-form .filed-4 {
+      display: block;
+      /* flex-wrap: wrap; */
+    }
+    
+    .Okavango-form .field-1 > *,
+    .Okavango-form .field-2 > *,
+    .Okavango-form .flied-3 > *,
+    .Okavango-form .filed-4 > * {
+      flex: 1;
+      margin-right: 10px;
+      margin-top: 15px;
+    }
+    
+    .Okavango-form input[type="text"],
+    .Okavango-form input[type="email"],
+    .Okavango-form input[type="tel"],
+    .Okavango-form select,
+    .Okavango-form textarea {
+      width: 100%; /* Adjusted width to be 100% */
+      padding: 20px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    
+    .Okavango-form input[required],
+    .Okavango-form select[required],
+    .Okavango-form textarea[required] {
+      background-color: #f2f2f2;
+    }
+    
+    .Okavango-form input[type="checkbox"] {
+      margin-right: 5px;
+    }
+    
+    .Okavango-form textarea {
+      height: 100px;
+      resize: none;
+      overflow: auto;
+    }
+    
+    .Okavango-form label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .Okavango-form .submit input[type="submit"] {
+      width: 100%;
+      padding: 15px;
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .Okavango-form .submit input[type="submit"]:hover {
+      background-color: #333;
+    }
+  }
+  
+  
+  
+  
+  /* Media queries */
+  @media screen and (max-width: 1024px) {
+    .flex-row {
+      flex-basis: calc(50% - 6px); /* Adjusted width for two items in a row with margins */
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .flex-row {
+      flex-basis: calc(50% - 6px); /* Adjusted width for two items in a row with margins */
+    }
+    
+    .gellaries h1 {
+      font-size: 24px; /* Adjusted font size for smaller screens */
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .flex-row {
+      flex-basis: calc(100% - 6px); /* Full width for one item per row with margins */
+    }
+    
+    .gellaries h1 {
+      font-size: 20px; /* Adjusted font size for smaller screens */
+    }
+  }
+  
+  
+  
+  
+  
+  /* Media queries */
+  @media screen and (max-width: 768px) {
+    .footerbar {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .footerheading {
+      margin-left: 0;
+      margin-top: 20px;
+      text-align: center;
+    }
+  
+    .copyright {
+      margin-left: 0;
+      margin-top: 20px;
+      justify-content: center;
+    }
+  
+    .social-icons {
+      margin-right: 0;
+      margin-top: 10px;
+      text-align: center;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .flogo {
+      margin-left: 0;
+      width: 100% !important;
+    }
+    .flogo img{
+      
+        width: 147px !important;
+    
+    }
+    .footerheading {
+      width: 50px !important;
+      margin-left: 0;
+      margin-top: 10px;
+      text-align: start;
+    }
+  
+    .copyright {
+      margin-left: 0;
+      margin-top: 20px;
+      justify-content: center;
+    }
+  
+    .social-icons {
+      margin-right: 0;
+      width: 40px;
+      margin-top: 10px;
+      text-align: center;
+    }
+  }
+  
+  
